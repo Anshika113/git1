@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #0f0c29;
+  color: #fff;
+}
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: rgba(15,12,41,0.9);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  z-index: 1000;
+}
+nav h2 {
+  font-size: 1.5rem;
+  color: #ff00cc;
+}
+nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+nav a {
+  text-decoration: none;
+  color: #fff;
+}
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+}
+.glitch {
+  font-size: 4rem;
+  position: relative;
+  color: white;
+  text-transform: uppercase;
+  animation: flicker 3s infinite;
+}
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  clip: rect(0, 900px, 0, 0);
+}
+.glitch::before {
+  color: #0ff;
+  z-index: -1;
+  animation: glitchTop 2s infinite linear alternate-reverse;
+}
+.glitch::after {
+  color: #f0f;
+  z-index: -2;
+  animation: glitchBottom 2.5s infinite linear alternate-reverse;
+}
+@keyframes glitchTop {
+  0% { clip: rect(0, 900px, 0, 0); transform: translate(1px, -1px); }
+  10% { clip: rect(10px, 9999px, 20px, 0); transform: translate(-2px, 0); }
+  100% { clip: rect(0, 900px, 0, 0); transform: none; }
+}
+@keyframes glitchBottom {
+  0% { clip: rect(0, 900px, 0, 0); transform: translate(-1px, 1px); }
+  10% { clip: rect(15px, 9999px, 30px, 0); transform: translate(1px, -2px); }
+  100% { clip: rect(0, 900px, 0, 0); transform: none; }
+}
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  10% { opacity: 0.8; }
+  40% { opacity: 0.6; }
+  60% { opacity: 1; }
+}
+.section {
+  padding: 6rem 2rem;
+  text-align: center;
+  background: #1c1b3a;
+  border-bottom: 1px solid #333;
+}
+.cta-btn {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(to right, #ff00cc, #333399);
+  color: white;
+  border-radius: 50px;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+}
